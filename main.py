@@ -8,8 +8,8 @@ from jinja2 import Environment
 from jinja2 import FileSystemLoader
 from jinja2 import select_autoescape
 
-excel_data_wine = pandas.read_excel('wine.xlsx',na_values=['nan', 'None'], keep_default_na=False)
-dict_wine = excel_data_wine.to_dict(orient='records')
+excel_wine = pandas.read_excel('wine.xlsx',na_values=['nan', 'None'], keep_default_na=False)
+dict_wine = excel_wine.to_dict(orient='records')
 production_dict = collections.defaultdict(list)
 
 for wine in dict_wine:
