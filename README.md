@@ -6,7 +6,7 @@
 
 - Скачайте код
 - Перейдите в папку со скриптом в командой строке cd [path]
-- Установите необходимые пакеты командой pip install -r requirements.txt, либо если вы пользуетесь pipenv pipenv install -r requirements.txt
+- Установите необходимые пакеты командой 'pip install -r requirements.txt', либо если вы пользуетесь 'pipenv pipenv install -r requirements.txt'
 - Запустите сайт командой `python3 main.py`
 - Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
