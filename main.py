@@ -1,19 +1,20 @@
+import collections
 import datetime
 import pandas
-import collections
 
+from http.server import HTTPServer
+from http.server import SimpleHTTPRequestHandler
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
+from jinja2 import select_autoescape
 
 excel_data_wine = pandas.read_excel('wine.xlsx',na_values=['nan', 'None'], keep_default_na=False)
 dict_wine = excel_data_wine.to_dict(orient='records')
-
 production_dict = collections.defaultdict(list)
+
 for wine in dict_wine:
     production_dict[wine['Категория']].append(wine)
 
-
-from http.server import HTTPServer, SimpleHTTPRequestHandler
-
-from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 event1 = datetime.datetime(year=1920, month=12, day=12, hour=1)
 formatted_date_1 = event1.strftime('%Y')
