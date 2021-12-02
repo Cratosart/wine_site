@@ -1,7 +1,6 @@
 import collections
 import datetime
 import pandas
-import sys
 import argparse
 
 from http.server import HTTPServer
@@ -22,23 +21,15 @@ if __name__ == '__main__':
     parser = createParser()
     namespace = parser.parse_args()
 
-    print(namespace.n)
-
-
-    wines = pandas.read_excel(f'{namespace.n}',na_values=['nan', 'None'], keep_default_na=False).to_dict(orient='records')
+    wines = pandas.read_excel(f'{namespace.n}', na_values=['nan', 'None'], keep_default_na=False).to_dict(
+        orient='records')
     production = collections.defaultdict(list)
 
     for wine in wines:
         production[wine['Категория']].append(wine)
 
-
     year_foundation = datetime.datetime(year=1920, month=12, day=12, hour=1)
-    winery_age= datetime.datetime.today().year - year_foundation.year
-
-    for price in production:
-        print(production)
-        print(price)
-        end
+    winery_age = datetime.datetime.today().year - year_foundation.year
 
     env = Environment(
         loader=FileSystemLoader('.'),
