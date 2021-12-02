@@ -2,4 +2,6 @@ env/
 .vscode/
 index.html/
 .replit/
+Pipfile/
+Pipfile.lock/
 
