@@ -113,39 +113,39 @@
             </p>
           </div>
         </div>
-      {% for wine in production %}
-    <div class="container">
-    <div class="row">
-        <div class="col-12 section-title text-center mb-5">
+    {% for wine in production %}
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-title text-center mb-5">
             <h2 class="d-block">{{wine}}</h2>
-         </div>
-           {% for price in production[wine] %}
-          <div class="col-lg-4 mb-5 col-md-6">
-
-            <div class="wine_v_1 text-center pb-4 pt-5">
-              {% if price.Акция %}
-              <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
-              <img src="images/{{price.Картинка}}" class="card-img-top" alt="...">
-              {% else %}
-              <img src="images/{{price.Картинка}}" class="card-img-top" alt="...">
-              {% endif %}
-              <!-- <img src="{{wine.Картинка}}" alt="Image" class="img-fluid"> -->
-              <div>
-                <h3 class="heading mt-3 mb-3 text-dark">{{price.Название}}</h3>
-                <p>
-                  {% if wine == 'Белые вина' or wine == 'Красные вина' %}
-                    {{price.Сорт}}<br/>
-                  {% endif %}
-                  <span class="price">{{price.Цена}} р.</span>
-                </p>
-              </div>
-            </div>
-          </div>
-         {% endfor %}
-        </div>
       </div>
+        {% for key, value in production.items() %}
+          {% if wine == key %}
+            {% for price in value %}
+              <div class="col-lg-4 mb-5 col-md-6">
+                <div class="wine_v_1 text-center pb-4 pt-5">
+                  <img src="images/{{price.Картинка}}" class="card-img-top" alt="...">
+                  {% if price.Акция %}
+                    <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                  {% endif %}
+                  <div>
+                    <h3 class="heading mt-3 mb-3 text-dark">{{price.Название}}</h3>
+                     <p>
+                       {% if price.Сорт != '' %}
+                         {{price.Сорт}}<br/>
+                       {% endif %}
+                         <span class="price">{{price.Цена}} р.</span>
+                     </p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+       </div>
+     </div>
     </div>
-      {% endfor %}
+  {% endfor %}
 
     <div class="hero-2" style="background-image: url('assets/hero_2.jpg');">
     <div><a id="feedback"></a></div>

@@ -30,7 +30,6 @@ if __name__ == '__main__':
 
     year_foundation = 1920
     winery_age = datetime.datetime.today().year - year_foundation
-    print(winery_age)
 
     env = Environment(
         loader=FileSystemLoader('.'),
