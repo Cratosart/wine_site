@@ -28,8 +28,9 @@ if __name__ == '__main__':
     for wine in wines:
         production[wine['Категория']].append(wine)
 
-    year_foundation = datetime.datetime(year=1920, month=12, day=12, hour=1)
-    winery_age = datetime.datetime.today().year - year_foundation.year
+    year_foundation = 1920
+    winery_age = datetime.datetime.today().year - year_foundation
+    print(winery_age)
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -39,7 +40,7 @@ if __name__ == '__main__':
     template = env.get_template('template.html')
 
     rendered_page = template.render(
-        time_found=f'Уже {winery_age} год с вами',
+        winery_age=f'Уже {winery_age} год с вами',
         production=production
     )
 
