@@ -28,8 +28,8 @@ if __name__ == '__main__':
     for wine in wines:
         production[wine['Категория']].append(wine)
 
-    year_foundation = 1920
-    winery_age = datetime.datetime.today().year - year_foundation
+    foundation_year = 1920
+    winery_age = datetime.datetime.today().year - foundation_year
 
     env = Environment(
         loader=FileSystemLoader('.'),
